@@ -120,7 +120,7 @@ function gameObject() {
     for (let team in game) {
       let players = game[team].players;
       if (players[playerName]) {
-        debugger;
+        debugger
         return players[playerName].points;
       }
     }

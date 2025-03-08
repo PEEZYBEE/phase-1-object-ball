@@ -120,7 +120,6 @@ function gameObject() {
     for (let team in game) {
       let players = game[team].players;
       if (players[playerName]) {
-        debugger;
         return players[playerName].points;
       }
     }
@@ -241,25 +240,6 @@ function gameObject() {
     }
   
     return longestName;
-  }
-
-  function doesLongNameStealATon() {
-    let game = gameObject();
-    let longestName = playerWithLongestName();
-    let maxSteals = 0;
-    let playerWithMostSteals;
-  
-    for (let team in game) {
-      let players = game[team].players;
-      for (let player in players) {
-        if (players[player].steals > maxSteals) {
-          maxSteals = players[player].steals;
-          playerWithMostSteals = player;
-        }
-      }
-    }
-  
-    return longestName === playerWithMostSteals;
   }
 
   

@@ -120,7 +120,6 @@ function gameObject() {
     for (let team in game) {
       let players = game[team].players;
       if (players[playerName]) {
-        debugger;
         return players[playerName].points;
       }
     }
@@ -173,93 +172,6 @@ function gameObject() {
         return players[playerName];
       }
     }
-  }
-
-  function bigShoeRebounds() {
-    let game = gameObject();
-    let largestShoe = 0;
-    let playerWithLargestShoe;
-    
-    for (let team in game) {
-      let players = game[team].players;
-      for (let player in players) {
-        if (players[player].shoe > largestShoe) {
-          largestShoe = players[player].shoe;
-          playerWithLargestShoe = player;
-        }
-      }
-    }
-  
-    return game.home.players[playerWithLargestShoe].rebounds || game.away.players[playerWithLargestShoe].rebounds;
-  }
-
-  function mostPointsScored() {
-    let game = gameObject();
-    let maxPoints = 0;
-    let playerWithMostPoints;
-    
-    for (let team in game) {
-      let players = game[team].players;
-      for (let player in players) {
-        if (players[player].points > maxPoints) {
-          maxPoints = players[player].points;
-          playerWithMostPoints = player;
-        }
-      }
-    }
-  
-    return playerWithMostPoints;
-  }
-
-  function winningTeam() {
-    let game = gameObject();
-    let homePoints = 0;
-    let awayPoints = 0;
-  
-    for (let player in game.home.players) {
-      homePoints += game.home.players[player].points;
-    }
-  
-    for (let player in game.away.players) {
-      awayPoints += game.away.players[player].points;
-    }
-  
-    return homePoints > awayPoints ? game.home.teamName : game.away.teamName;
-  }
-
-  function playerWithLongestName() {
-    let game = gameObject();
-    let longestName = '';
-    
-    for (let team in game) {
-      let players = game[team].players;
-      for (let player in players) {
-        if (player.length > longestName.length) {
-          longestName = player;
-        }
-      }
-    }
-  
-    return longestName;
-  }
-
-  function doesLongNameStealATon() {
-    let game = gameObject();
-    let longestName = playerWithLongestName();
-    let maxSteals = 0;
-    let playerWithMostSteals;
-  
-    for (let team in game) {
-      let players = game[team].players;
-      for (let player in players) {
-        if (players[player].steals > maxSteals) {
-          maxSteals = players[player].steals;
-          playerWithMostSteals = player;
-        }
-      }
-    }
-  
-    return longestName === playerWithMostSteals;
   }
 
   
